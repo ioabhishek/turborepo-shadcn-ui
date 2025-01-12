@@ -1,6 +1,7 @@
 "use client"
 import React from "react"
-import { Button } from "@repo/ui/components/button"
+import { useTheme } from "next-themes"
+import { Moon, Sun } from "lucide-react"
 import {
   Card,
   CardContent,
@@ -8,9 +9,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@repo/ui/components/card"
-import { useTheme } from "next-themes"
-import { Moon, Sun } from "lucide-react"
+} from "@repo/ui/shadcn/card"
+import { CustomCard } from "@repo/ui/components/customCard"
+import { Button } from "@repo/ui/shadcn/button"
 
 const page = () => {
   const { theme, setTheme } = useTheme()
@@ -18,6 +19,12 @@ const page = () => {
   return (
     <div>
       <Button size="sm">Click me</Button>
+      <CustomCard
+        title="amazing"
+        children="johndoe"
+        href="https://beebom.com"
+      />
+
       <Card>
         <CardHeader>
           <CardTitle>Card Title</CardTitle>
@@ -30,6 +37,7 @@ const page = () => {
           <p>Card Footer</p>
         </CardFooter>
       </Card>
+
       <div className=" flex items-center gap-6 my-4">
         <Moon
           className=" w-5 h-5 cursor-pointer"
